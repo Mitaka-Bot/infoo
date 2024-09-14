@@ -24,5 +24,21 @@ pip install requests \
 # Step 5: Navigate to the directory where the bot is located
 cd /storage/emulated/0/Download/mobile
 
-# Step 6: Run the bot
-python main.pyc
+# Step 6: Check if main.pyc exists
+if [ -f "main.pyc" ]; then
+    echo "main.pyc file found! Starting the bot..."
+    python main.pyc
+else
+    echo "main.pyc file not found. Trying the mobile/mobile directory..."
+
+    # Try the nested mobile/mobile directory
+    cd /storage/emulated/0/Download/mobile/mobile
+
+    if [ -f "main.pyc" ]; then
+        echo "main.pyc file found in the mobile/mobile directory! Starting the bot..."
+        python main.pyc
+    else
+        echo "Error: The main.pyc file was not found in either directory. Please check the setup."
+        exit 1
+    fi
+fi
