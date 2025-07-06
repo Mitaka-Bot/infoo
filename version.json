@@ -1,6 +1,6 @@
 {
   "status": "off",
-  "mobile": "off", 
+  "mobile": "on", 
   "jp": "on",
   "dt_glb": "on",
   "version": "4.5",
